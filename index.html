@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nifty F&O Signal Automation - Market Vision Telugu</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a0a1a;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: #12122a;
+      border: 1px solid #2a2a5a;
+      border-radius: 16px;
+      padding: 40px 30px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(99,102,241,0.2);
+    }
+    .logo {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    .channel-name {
+      color: #818cf8;
+      font-size: 14px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: 22px;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .subtitle {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+    .features {
+      background: #1a1a3a;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      color: #cbd5e1;
+      border-bottom: 1px solid #2a2a4a;
+    }
+    .feature:last-child { border-bottom: none; }
+    .feature-icon { font-size: 18px; }
+    .download-btn {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      border: none;
+      padding: 16px 40px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 12px;
+      transition: all 0.3s;
+      letter-spacing: 0.5px;
+    }
+    .download-btn:hover {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99,102,241,0.4);
+    }
+    .download-btn:active { transform: translateY(0); }
+    .steps {
+      background: #1a1a3a;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: left;
+    }
+    .steps-title {
+      font-size: 14px;
+      color: #818cf8;
+      font-weight: bold;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .step {
+      display: flex;
+      gap: 12px;
+      padding: 6px 0;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .step-num {
+      background: #6366f1;
+      color: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .warning {
+      background: #1a0f00;
+      border: 1px solid #92400e;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #fbbf24;
+      line-height: 1.5;
+    }
+    .success-msg {
+      display: none;
+      background: #052e16;
+      border: 1px solid #166534;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 12px;
+      color: #4ade80;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">📊</div>
+    <div class="channel-name">Market Vision తెలుగు</div>
+    <h1>Nifty F&O Signal Automation</h1>
+    <p class="subtitle">Free automatic trading alerts to your Gmail</p>
+
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon">✅</span>
+        <span>Pivot Points — PP, R1, R2, S1, S2</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">✅</span>
+        <span>EMA 9 & EMA 20 Crossover</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">✅</span>
+        <span>Demand & Supply Zones</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">✅</span>
+        <span>3 Min + 5 Min Timeframes</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">✅</span>
+        <span>Auto Gmail alerts every 3 minutes</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">✅</span>
+        <span>100% FREE — No paid tools needed</span>
+      </div>
+    </div>
+
+    <button class="download-btn" onclick="downloadJSON()">
+      📥 Download JSON File — FREE
+    </button>
+
+    <div class="success-msg" id="successMsg">
+      ✅ Download started! Check your downloads folder.
+    </div>
+
+    <div class="steps">
+      <div class="steps-title">⚡ How to Use This File</div>
+      <div class="step">
+        <div class="step-num">1</div>
+        <span>Go to n8n.cloud → Create free account</span>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <span>Click "+" → Import from file → Select downloaded JSON</span>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <span>Open Gmail node → Connect your Gmail account</span>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <span>Change YOUR_EMAIL to your real Gmail address</span>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <span>Click Publish → Signals start coming automatically!</span>
+      </div>
+    </div>
+
+    <div class="warning">
+      ⚠️ Disclaimer: ఇది educational purpose మాత్రమే. Trading లో నష్టాలు సంభవించవచ్చు. ముందు paper trade చేయండి. SEBI registered advice కాదు.
+    </div>
+  </div>
+
+  <script>
+    function downloadJSON() {
+      const jsonData = {
+        "name": "Nifty F&O Signal Alert - FIXED",
+        "nodes": [
+          {
+            "parameters": {
+              "rule": { "interval": [{ "field": "minutes", "minutesInterval": 3 }] }
+            },
+            "name": "Schedule Trigger",
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.1,
+            "position": [100, 300]
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "loose" },
+                "conditions": [
+                  { "id": "cond1", "leftValue": "={{ (new Date().getUTCHours() * 60 + new Date().getUTCMinutes() + 330) % 1440 }}", "rightValue": 555, "operator": { "type": "number", "operation": "gte" } },
+                  { "id": "cond2", "leftValue": "={{ (new Date().getUTCHours() * 60 + new Date().getUTCMinutes() + 330) % 1440 }}", "rightValue": 925, "operator": { "type": "number", "operation": "lte" } }
+                ],
+                "combinator": "and"
+              },
+              "options": { "looseTypeValidation": true }
+            },
+            "name": "Market Hours Check",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2,
+            "position": [320, 300]
+          },
+          {
+            "parameters": { "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=5m&range=1d", "options": {} },
+            "name": "Fetch 5min Data",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.1,
+            "position": [560, 180]
+          },
+          {
+            "parameters": { "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=3m&range=1d", "options": {} },
+            "name": "Fetch 3min Data",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.1,
+            "position": [560, 460]
+          },
+          {
+            "parameters": {
+              "language": "javaScript",
+              "jsCode": "const result = $input.first().json;\nconst quotes = result.chart.result[0].indicators.quote[0];\nconst closes = quotes.close.filter(v => v !== null);\nconst highs = quotes.high.filter(v => v !== null);\nconst lows = quotes.low.filter(v => v !== null);\nif (closes.length < 5) return [{ json: { signal: '', timeframe: '5min' } }];\nconst last = closes[closes.length - 1];\nconst pH = highs[highs.length - 2];\nconst pL = lows[lows.length - 2];\nconst pC = closes[closes.length - 2];\nconst PP = (pH + pL + pC) / 3;\nconst R1 = (2 * PP) - pL;\nconst R2 = PP + (pH - pL);\nconst S1 = (2 * PP) - pH;\nconst S2 = PP - (pH - pL);\nfunction ema(data, p) { const k = 2 / (p + 1); let e = data[0]; for (let i = 1; i < data.length; i++) e = data[i] * k + e * (1 - k); return e; }\nconst e9 = ema(closes.slice(-20), 9);\nconst e20 = ema(closes.slice(-20), 20);\nconst sTop = Math.max(...highs.slice(-5));\nconst sBot = sTop - 40;\nconst dBot = Math.min(...lows.slice(-5));\nconst dTop = dBot + 40;\nlet signal = ''; let entry = 0, t1 = 0, t2 = 0, sl = 0, zone = '';\nif (last <= S1 + 20 && last >= S1 - 20 && e9 > e20 && last >= dBot - 10 && last <= dTop + 20) { signal = 'BUY - CE Buy or PE Sell'; entry = Math.round(last); sl = Math.round(S2 - 15); t1 = Math.round(PP); t2 = Math.round(R1); zone = 'DEMAND ZONE near S1'; }\nif (last >= R1 - 20 && last <= R1 + 20 && e9 < e20 && last >= sBot - 20 && last <= sTop) { signal = 'SELL - PE Buy or CE Sell'; entry = Math.round(last); sl = Math.round(R2 + 15); t1 = Math.round(PP); t2 = Math.round(S1); zone = 'SUPPLY ZONE near R1'; }\nconst IST = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' });\nreturn [{ json: { timeframe: '5min', signal, entry, target1: t1, target2: t2, stopLoss: sl, zone, PP: Math.round(PP), R1: Math.round(R1), R2: Math.round(R2), S1: Math.round(S1), S2: Math.round(S2), ema9: Math.round(e9), ema20: Math.round(e20), price: Math.round(last), time: IST } }];"
+            },
+            "name": "Calculate 5min Signal",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [800, 180]
+          },
+          {
+            "parameters": {
+              "language": "javaScript",
+              "jsCode": "const result = $input.first().json;\nconst quotes = result.chart.result[0].indicators.quote[0];\nconst closes = quotes.close.filter(v => v !== null);\nconst highs = quotes.high.filter(v => v !== null);\nconst lows = quotes.low.filter(v => v !== null);\nif (closes.length < 5) return [{ json: { signal: '', timeframe: '3min' } }];\nconst last = closes[closes.length - 1];\nconst pH = highs[highs.length - 2];\nconst pL = lows[lows.length - 2];\nconst pC = closes[closes.length - 2];\nconst PP = (pH + pL + pC) / 3;\nconst R1 = (2 * PP) - pL;\nconst R2 = PP + (pH - pL);\nconst S1 = (2 * PP) - pH;\nconst S2 = PP - (pH - pL);\nfunction ema(data, p) { const k = 2 / (p + 1); let e = data[0]; for (let i = 1; i < data.length; i++) e = data[i] * k + e * (1 - k); return e; }\nconst e9 = ema(closes.slice(-20), 9);\nconst e20 = ema(closes.slice(-20), 20);\nconst sTop = Math.max(...highs.slice(-5));\nconst sBot = sTop - 30;\nconst dBot = Math.min(...lows.slice(-5));\nconst dTop = dBot + 30;\nlet signal = ''; let entry = 0, t1 = 0, t2 = 0, sl = 0, zone = '';\nif (last <= S1 + 15 && last >= S1 - 15 && e9 > e20 && last >= dBot - 10 && last <= dTop + 15) { signal = 'BUY - CE Buy or PE Sell'; entry = Math.round(last); sl = Math.round(S2 - 10); t1 = Math.round(PP); t2 = Math.round(R1); zone = 'DEMAND ZONE near S1'; }\nif (last >= R1 - 15 && last <= R1 + 15 && e9 < e20 && last >= sBot - 15 && last <= sTop) { signal = 'SELL - PE Buy or CE Sell'; entry = Math.round(last); sl = Math.round(R2 + 10); t1 = Math.round(PP); t2 = Math.round(S1); zone = 'SUPPLY ZONE near R1'; }\nconst IST = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' });\nreturn [{ json: { timeframe: '3min', signal, entry, target1: t1, target2: t2, stopLoss: sl, zone, PP: Math.round(PP), R1: Math.round(R1), R2: Math.round(R2), S1: Math.round(S1), S2: Math.round(S2), ema9: Math.round(e9), ema20: Math.round(e20), price: Math.round(last), time: IST } }];"
+            },
+            "name": "Calculate 3min Signal",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [800, 460]
+          },
+          {
+            "parameters": {
+              "language": "javaScript",
+              "jsCode": "const all = $input.all();\nlet data5 = null; let data3 = null;\nfor (const item of all) { if (item.json.timeframe === '5min') data5 = item.json; if (item.json.timeframe === '3min') data3 = item.json; }\nconst has5 = data5 && data5.signal !== ''; const has3 = data3 && data3.signal !== '';\nif (!has5 && !has3) return [];\nconst IST = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' });\nlet subject = 'Nifty F&O Alert';\nif (has5 && has3) subject = 'STRONG Signal - ' + data5.signal + ' (3m+5m Confirm!)';\nelse if (has5) subject = 'Nifty 5min - ' + data5.signal + ' at ' + data5.price;\nelse if (has3) subject = 'Nifty 3min - ' + data3.signal + ' at ' + data3.price;\nlet message = 'NIFTY F&O SCALPING ALERT\\nTime: ' + IST + '\\n\\n';\nif (has5 && has3) message += '*** STRONG SIGNAL - BOTH TIMEFRAMES CONFIRM ***\\n\\n';\nif (has5) { message += '=============================\\n5 MIN SIGNAL\\n=============================\\n'; message += 'Signal: ' + data5.signal + '\\nEntry: ' + data5.entry + '\\nTarget 1: ' + data5.target1 + '\\nTarget 2: ' + data5.target2 + '\\nStop Loss: ' + data5.stopLoss + '\\nZone: ' + data5.zone + '\\n\\n'; message += 'PP: ' + data5.PP + ' | R1: ' + data5.R1 + ' | R2: ' + data5.R2 + '\\nS1: ' + data5.S1 + ' | S2: ' + data5.S2 + '\\nEMA9: ' + data5.ema9 + ' | EMA20: ' + data5.ema20 + '\\nPrice: ' + data5.price + '\\n\\n'; }\nif (has3) { message += '=============================\\n3 MIN SIGNAL\\n=============================\\n'; message += 'Signal: ' + data3.signal + '\\nEntry: ' + data3.entry + '\\nTarget 1: ' + data3.target1 + '\\nTarget 2: ' + data3.target2 + '\\nStop Loss: ' + data3.stopLoss + '\\nZone: ' + data3.zone + '\\n\\n'; message += 'PP: ' + data3.PP + ' | R1: ' + data3.R1 + ' | R2: ' + data3.R2 + '\\nS1: ' + data3.S1 + ' | S2: ' + data3.S2 + '\\nEMA9: ' + data3.ema9 + ' | EMA20: ' + data3.ema20 + '\\nPrice: ' + data3.price + '\\n\\n'; }\nmessage += '-----------------------------\\nAlways use Stop Loss! Paper trade first!';\nreturn [{ json: { subject, message } }];"
+            },
+            "name": "Combine Signals",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [1040, 300]
+          },
+          {
+            "parameters": {
+              "sendTo": "YOUR_EMAIL@gmail.com",
+              "subject": "={{ $json.subject }}",
+              "emailType": "text",
+              "message": "={{ $json.message }}",
+              "options": {}
+            },
+            "name": "Send Gmail Alert",
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2.1,
+            "position": [1280, 300]
+          }
+        ],
+        "connections": {
+          "Schedule Trigger": { "main": [[{ "node": "Market Hours Check", "type": "main", "index": 0 }]] },
+          "Market Hours Check": { "main": [[{ "node": "Fetch 5min Data", "type": "main", "index": 0 }, { "node": "Fetch 3min Data", "type": "main", "index": 0 }], []] },
+          "Fetch 5min Data": { "main": [[{ "node": "Calculate 5min Signal", "type": "main", "index": 0 }]] },
+          "Fetch 3min Data": { "main": [[{ "node": "Calculate 3min Signal", "type": "main", "index": 0 }]] },
+          "Calculate 5min Signal": { "main": [[{ "node": "Combine Signals", "type": "main", "index": 0 }]] },
+          "Calculate 3min Signal": { "main": [[{ "node": "Combine Signals", "type": "main", "index": 1 }]] },
+          "Combine Signals": { "main": [[{ "node": "Send Gmail Alert", "type": "main", "index": 0 }]] }
+        }
+      };
+
+      const blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'nifty_FIXED_final.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      document.getElementById('successMsg').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
